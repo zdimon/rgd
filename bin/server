@@ -1,0 +1,6 @@
+if [ -z "$1" ]
+  then
+    echo "You need to provide port!!!"
+fi
+. ./ve/bin/activate
+python manage.py runserver 0.0.0.0:$1
