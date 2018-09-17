@@ -66,7 +66,7 @@ TEMPLATES = [
             ],
         },
     },
-]
+] 
 
 WSGI_APPLICATION = 'rgd.wsgi.application'
 
