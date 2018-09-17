@@ -1,0 +1,1 @@
+# Web service for reading publications from pressa.ru
