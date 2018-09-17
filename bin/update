@@ -1,0 +1,3 @@
+. ./ve/bin/activate
+git pull
+./manage.py migrate
