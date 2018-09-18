@@ -108,10 +108,10 @@ def importMedia():
     if not os.path.exists(dir):
         os.makedirs(dir)    
     for i in createIssueImageList():
-        dj = dir+'/'+i.journal_id
+        dj = dir+'/'+str(i['journal_id'])
         if not os.path.exists(dj):
             os.makedirs(dj)     
-        di = dj+'/'+i.id   
+        di = dj+'/'+str(i['issue_id'])
         if not os.path.exists(di):
             os.makedirs(di)   
 
