@@ -150,6 +150,6 @@ def importMedia():
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        #importTopJournal()
-        #importCatalog()
+        importTopJournal()
+        importCatalog()
         importMedia()
