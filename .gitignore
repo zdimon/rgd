@@ -1,3 +1,4 @@
 ve
 *.pyc
 static/data
+db.sqlite3
