@@ -53,7 +53,7 @@ def getTop(theme=None):
     return out
    
 
-def getTopArticles(exep=None):
+def getTopArticles(exep=0):
     
     out = []
     date = datetime.date.today()
