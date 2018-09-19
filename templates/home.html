@@ -34,137 +34,22 @@
     <div class="scroller">
         <section id="n_slider">
             <ul class="slider">
-                                        <li class="journal">
+                {% for i in topArticles %}
+                    <li class="journal">
                         <div class="wrap">
                             <a href="/catalogue/news/2018-09-17/125052" title="Технологии вышли на экспорт">
-                                <div class="lazy" data-original="http://pressa.ru/media/news/cover/2018/09/17/%D0%98%D0%B7%D0%B2_173.jpg" style="background-image: url('/images/smallplaceholder.png'); width: 247px; height: 180px;"></div>
-                                <p class="title">Технологии вышли на экспорт<br/>Россия впервые в истории продает больше услуг в сфере IT, чем покупает										<span class="newsIcons">
-                                                                                                                                    <img class="newsTypeIcon"  src="/images/i_pdf.png"/>
+                                <div class="lazy" data-original="/static/data/top10/{{i.id}}.png" style="background-image: url('/images/smallplaceholder.png'); width: 247px; height: 180px;"></div>
+                                <p class="title">{{i.title}}<span class="newsIcons">
+                                                                                                                                                            <img class="newsTypeIcon"  src="/static/images/i_pdf.png"/>
                                                                                     
                                     </span>
                                 </p>
-                                <p class="issue">Известия 173-2018</p>
+                                <p class="issue">{{ i.journal }} {{ i.issue }}</p>
                             </a>
                         </div>
                     </li>
-                                        <li class="journal">
-                        <div class="wrap">
-                            <a href="/catalogue/news/2018-09-17/124750" title="Лайкнул — в тюрьму">
-                                <div class="lazy" data-original="http://pressa.ru/media/news/cover/2018/09/17/010_rusrep_18-1.jpg" style="background-image: url('/images/smallplaceholder.png'); width: 247px; height: 180px;"></div>
-                                <p class="title">Лайкнул — в тюрьму<br/>Кому и зачем нужно штамповать дутые дела за «экстремизм» в соцсетях										<span class="newsIcons">
-                                                                                                                                    <img class="newsTypeIcon"  src="/images/i_pdf.png"/>
-                                                                                    
-                                    </span>
-                                </p>
-                                <p class="issue">Русский Репортер 18-2018</p>
-                            </a>
-                        </div>
-                    </li>
-                                        <li class="journal">
-                        <div class="wrap">
-                            <a href="/catalogue/news/2018-09-17/125042" title="Джумшут из «Нашей Russia» стал бомжом">
-                                <div class="lazy" data-original="http://pressa.ru/media/news/cover/2018/09/17/inx960x640.jpg" style="background-image: url('/images/smallplaceholder.png'); width: 247px; height: 180px;"></div>
-                                <p class="title">Джумшут из «Нашей Russia» стал бомжом<br/>Как вчерашние звезды оказываются на обочине жизни										<span class="newsIcons">
-                                                                                                                                    <img class="newsTypeIcon"  src="/images/i_pdf.png"/>
-                                                                                    
-                                    </span>
-                                </p>
-                                <p class="issue">Комсомольская Правда. Москва 103п-2018</p>
-                            </a>
-                        </div>
-                    </li>
-                                        <li class="journal">
-                        <div class="wrap">
-                            <a href="/catalogue/news/2018-09-17/125045" title="«В потреблении мы недалеко ушли от обезьян»">
-                                <div class="lazy" data-original="http://pressa.ru/media/news/cover/2018/09/17/KMO_148127_01142_1_t218_231520.jpg" style="background-image: url('/images/smallplaceholder.png'); width: 247px; height: 180px;"></div>
-                                <p class="title">«В потреблении мы недалеко ушли от обезьян»<br/>ПРЕДСТАВИТЕЛИ НОВОЙ НАУЧНОЙ ДИСЦИПЛИНЫ — НЕЙРОЭКОНОМИКИ — ПРИШЛИ К СЕНСАЦИОННОМУ ВЫВОДУ: ПОТРЕБИТЕЛЬСКОЕ ПОВЕДЕНИЕ ЛЮДЕЙ И ЖИВОТНЫХ УПРАВЛЯЕТСЯ ОДИНАКОВЫМИ ИНСТИНКТАМИ										<span class="newsIcons">
-                                                                                                                                    <img class="newsTypeIcon"  src="/images/i_pdf.png"/>
-                                                                                    
-                                    </span>
-                                </p>
-                                <p class="issue">Огонёк 35-2018</p>
-                            </a>
-                        </div>
-                    </li>
-                                        <li class="journal">
-                        <div class="wrap">
-                            <a href="/catalogue/news/2018-09-17/125041" title="Пояс Макгрегора и гимн СССР. Как прошел первый в России турнир UFC">
-                                <div class="lazy" data-original="http://pressa.ru/media/news/cover/2018/09/17/22109_2018_09_17_205_7736.jpg" style="background-image: url('/images/smallplaceholder.png'); width: 247px; height: 180px;"></div>
-                                <p class="title">Пояс Макгрегора и гимн СССР. Как прошел первый в России турнир UFC<br/>​Алексей Олейник одержал победу над Марком Хантом в главном поединке шоу UFC Fight Night 136, которое состоялось в субботу в Москве										<span class="newsIcons">
-                                                                                                                                    <img class="newsTypeIcon"  src="/images/i_pdf.png"/>
-                                                                                    
-                                    </span>
-                                </p>
-                                <p class="issue">Спорт-экспресс 205-2018</p>
-                            </a>
-                        </div>
-                    </li>
-                                        <li class="journal">
-                        <div class="wrap">
-                            <a href="/catalogue/news/2018-09-17/125046" title="Хватили через край">
-                                <div class="lazy" data-original="http://pressa.ru/media/news/cover/2018/09/17/KMO_085979_07624_1_t218_215923.jpg" style="background-image: url('/images/smallplaceholder.png'); width: 247px; height: 180px;"></div>
-                                <p class="title">Хватили через край<br/>Как коммунист Андрей Ищенко выигрывал и не выиграл у Андрея Тарасенко выборы губернатора Приморского края										<span class="newsIcons">
-                                                                                                                                    <img class="newsTypeIcon"  src="/images/i_pdf.png"/>
-                                                                                    
-                                    </span>
-                                </p>
-                                <p class="issue">Коммерсантъ (понедельник-пятница) 168п-2018</p>
-                            </a>
-                        </div>
-                    </li>
-                                        <li class="journal">
-                        <div class="wrap">
-                            <a href="/catalogue/news/2018-09-17/125044" title="Авиакатастрофа MH17: пора раскрыть все карты">
-                                <div class="lazy" data-original="http://pressa.ru/media/news/cover/2018/09/17/mk_27785_17_09_2018_2.jpg" style="background-image: url('/images/smallplaceholder.png'); width: 247px; height: 180px;"></div>
-                                <p class="title">Авиакатастрофа MH17: пора раскрыть все карты<br/>Российские военные готовы обнародовать сенсационные данные крушения малайзийского «Боинга»										<span class="newsIcons">
-                                                                                                                                    <img class="newsTypeIcon"  src="/images/i_pdf.png"/>
-                                                                                    
-                                    </span>
-                                </p>
-                                <p class="issue">МК Московский Комсомолец 201-2018</p>
-                            </a>
-                        </div>
-                    </li>
-                                        <li class="journal">
-                        <div class="wrap">
-                            <a href="/catalogue/news/2018-09-17/125050" title="Отсечь «руку Москвы»">
-                                <div class="lazy" data-original="http://pressa.ru/media/news/cover/2018/09/17/kto-nachal-oxizkix-rossii-1-1.jpg" style="background-image: url('/images/smallplaceholder.png'); width: 247px; height: 180px;"></div>
-                                <p class="title">Отсечь «руку Москвы»<br/>Кто начал охоту на политиков, близких России?										<span class="newsIcons">
-                                                                                                                                    <img class="newsTypeIcon"  src="/images/i_pdf.png"/>
-                                                                                    
-                                    </span>
-                                </p>
-                                <p class="issue">Наша Версия 36-2018</p>
-                            </a>
-                        </div>
-                    </li>
-                                        <li class="journal">
-                        <div class="wrap">
-                            <a href="/catalogue/news/2018-09-17/125047" title="Уборочная страда">
-                                <div class="lazy" data-original="http://pressa.ru/media/news/cover/2018/09/17/63d2b63d4863242a90d3ff8047afdd50.jpg" style="background-image: url('/images/smallplaceholder.png'); width: 247px; height: 180px;"></div>
-                                <p class="title">Уборочная страда<br/>ФНС всерьез взялась за клининговый бизнес, и это резко поднимет затраты на чистоту по всей России										<span class="newsIcons">
-                                                                                                                                    <img class="newsTypeIcon"  src="/images/i_pdf.png"/>
-                                                                                    
-                                    </span>
-                                </p>
-                                <p class="issue">Профиль 35-2018</p>
-                            </a>
-                        </div>
-                    </li>
-                                        <li class="journal">
-                        <div class="wrap">
-                            <a href="/catalogue/news/2018-09-17/125039" title="Акция непоминовения">
-                                <div class="lazy" data-original="http://pressa.ru/media/news/cover/2018/09/17/inx960x640_2.jpg" style="background-image: url('/images/smallplaceholder.png'); width: 247px; height: 180px;"></div>
-                                <p class="title">Акция непоминовения<br/>Пять вопросов о наметившемся расколе в православном мире										<span class="newsIcons">
-                                                                                                                                    <img class="newsTypeIcon"  src="/images/i_pdf.png"/>
-                                                                                    
-                                    </span>
-                                </p>
-                                <p class="issue">Ежедневная Деловая Газета Рбк 158-2018</p>
-                            </a>
-                        </div>
-                    </li>
-                                </ul>
+                {% endfor %}            
+                </ul>
         </section>
     </div>
 </div>

@@ -29,3 +29,7 @@ class TopJournalAdmin(admin.ModelAdmin):
    
 admin.site.register(TopJournal, TopJournalAdmin)
 
+class TopArticlesAdmin(admin.ModelAdmin):
+    list_display = ('title','date')
+   
+admin.site.register(TopArticles, TopArticlesAdmin)

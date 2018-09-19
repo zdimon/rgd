@@ -144,6 +144,15 @@ def importMedia():
     lst = createIssueImageList()
     saveImages(lst)
 
+
+def saveImagesTopArticle(date):
+    for i in TopArticles.objects.filter(date=date):
+        path = '%s/static/data/top10/%s_small.png' % (BASE_DIR,i.id)
+        saveFile(path,urllib.urlopen(i.small_image_portrait).read())
+        print path
+        path = '%s/static/data/top10/%s.png' % (BASE_DIR,i.id)
+        saveFile(path,urllib.urlopen(i.image).read())
+        print path
         
 
 def getTopArticles():
@@ -160,13 +169,28 @@ def getTopArticles():
             date = date - datetime.timedelta(days=1)
             inner(date)        
         else:
+            TopArticles.objects.filter(date=date).delete()
             for i in rez['articles']:
-                out.append(i)
+                t = TopArticles()
+                t.author = i['author']
+                t.text = i['text']
+                t.text_continue = i['text_continue']
+                t.small_image_square = i['small_image_square']
+                t.image = i['image']
+                t.short_text = i['short_text']
+                t.reader_url = i['reader_url']
+                t.title = i['title']
+                t.small_image_portrait = i['small_image_portrait']
+                t.small_image = i['small_image']
+                t.issue_id = i['issue_id']
+                t.issue = i['issue']
+                t.journal = i['journal']
+                t.date = date
+                t.save()
+                print 'Saving %s' % (t.title)
+                
     inner(date)
-    path = '%s/%s.json' % (dir,date.strftime("%Y-%m-%d"))
-    f = open(path,'w')
-    f.write(json.dumps(out))
-    f.close()
+    saveImagesTopArticle(date)
     return out
 
 
