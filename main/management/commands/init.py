@@ -40,7 +40,7 @@ def importTheme():
     for t in catalog:
         print 'saving %s' % t['name']
         t = Theme()
-        t.id = t['id']
+        t.id = int(t['id'])
         t.name = t['name']
         t.save()
 
