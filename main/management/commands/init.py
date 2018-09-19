@@ -35,7 +35,7 @@ catalog = [
 
 ]
 
-def importTeme():
+def importTheme():
     Theme.objects.all().delete()
     for t in catalog:
         print 'saving %s' % t['name']

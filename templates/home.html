@@ -3,99 +3,19 @@
 {% block main %}
 
 <section id="j_slider">
+
     <ul class="slider">
-                        <li class="journal">
+            {% for i in top %}
+            <li class="journal">
                 <a href="/catalogue/journal/1504" title="GQ">
-                    <img src="http://pressa.ru/media/covers/gq/2018/124873/520-680/cover.png" alt="" />						<span class="title">GQ							<span class="date">
+                    <img src="/static/data/{{i.journal_id}}/{{i.issue_id}}/520-680.png" alt="" />						<span class="title">{{ i.journal_name }}<span class="date">
                                                         </span>
                     </span>
                 </a>
-            </li>
-                        <li class="journal">
-                <a href="/catalogue/journal/1505" title="Architectural Digest/Ad">
-                    <img src="http://pressa.ru/media/covers/architectural-digestad/2018/124868/520-680/cover.png" alt="" />						<span class="title">Architectural Digest/Ad							<span class="date">
-                                                        </span>
-                    </span>
-                </a>
-            </li>
-                        <li class="journal">
-                <a href="/catalogue/journal/1378" title="Автомир">
-                    <img src="http://pressa.ru/media/covers/avtomir/2018/124905/520-680/cover.png" alt="" />						<span class="title">Автомир							<span class="date">
-                                                        </span>
-                    </span>
-                </a>
-            </li>
-                        <li class="journal">
-                <a href="/catalogue/journal/3" title="Cosmopolitan">
-                    <img src="http://pressa.ru/media/covers/cosmopolitan/2018/123540/520-680/cover.png" alt="" />						<span class="title">Cosmopolitan							<span class="date">
-                                                        </span>
-                    </span>
-                </a>
-            </li>
-                        <li class="journal">
-                <a href="/catalogue/journal/75" title="Футбол. Хоккей">
-                    <img src="http://pressa.ru/media/covers/futbol-hokkej/2018/124823/520-680/cover.png" alt="" />						<span class="title">Футбол. Хоккей							<span class="date">
-                                                        </span>
-                    </span>
-                </a>
-            </li>
-                        <li class="journal">
-                <a href="/catalogue/journal/1931" title="Forbes">
-                    <img src="http://pressa.ru/media/covers/forbes/2018/124651/520-680/cover.png" alt="" />						<span class="title">Forbes							<span class="date">
-                                                        </span>
-                    </span>
-                </a>
-            </li>
-                        <li class="journal">
-                <a href="/catalogue/journal/13" title="Marie Claire">
-                    <img src="http://pressa.ru/media/covers/marie-claire/2018/124700/520-680/cover.png" alt="" />						<span class="title">Marie Claire							<span class="date">
-                                                        </span>
-                    </span>
-                </a>
-            </li>
-                        <li class="journal">
-                <a href="/catalogue/journal/2063" title="In Style">
-                    <img src="http://pressa.ru/media/covers/in-style/2018/125030/520-680/cover.png" alt="" />						<span class="title">In Style							<span class="date">
-                                                        </span>
-                    </span>
-                </a>
-            </li>
-                        <li class="journal">
-                <a href="/catalogue/journal/90" title="National Geographic">
-                    <img src="http://pressa.ru/media/covers/national-geographic/2018/124536/520-680/cover.png" alt="" />						<span class="title">National Geographic							<span class="date">
-                                                        </span>
-                    </span>
-                </a>
-            </li>
-                        <li class="journal">
-                <a href="/catalogue/journal/1494" title="Стори">
-                    <img src="http://pressa.ru/media/covers/story/2018/124082/520-680/cover.png" alt="" />						<span class="title">Стори							<span class="date">
-                                                        </span>
-                    </span>
-                </a>
-            </li>
-                        <li class="journal">
-                <a href="/catalogue/journal/1370" title="Playboy">
-                    <img src="http://pressa.ru/media/covers/playboy/2018/124652/520-680/cover.png" alt="" />						<span class="title">Playboy							<span class="date">
-                                                        </span>
-                    </span>
-                </a>
-            </li>
-                        <li class="journal">
-                <a href="/catalogue/journal/125" title="Коммерсантъ (понедельник-пятница)">
-                    <img src="http://pressa.ru/media/covers/kommersant/2018/125046/520-680/cover.png" alt="" />						<span class="title">Коммерсантъ (понедельник-пятница)							<span class="date">
-                                                        </span>
-                    </span>
-                </a>
-            </li>
-                        <li class="journal">
-                <a href="/catalogue/journal/1534" title="Добрые Советы">
-                    <img src="http://pressa.ru/media/covers/dobryie-sovetyi/2018/124179/520-680/cover.png" alt="" />						<span class="title">Добрые Советы							<span class="date">
-                                                        </span>
-                    </span>
-                </a>
-            </li>
-                </ul>
+            </li>          
+            {% endfor %}          
+    </ul>
+
 </section><div class="newsBackground">
 <div class="container">
     <h2 class="no_bottom_line">
@@ -255,143 +175,23 @@
     <h2>Популярное</h2>
     <div class="scroller">
         <div>
+                
+                
+            
             <ul class="list">
-                                        <li class="journal col-md-3 col-sm-4 col-xs-12">
+                    {% for i in new %}
+                    <li class="journal col-md-3 col-sm-4 col-xs-12">
                         <a href="/catalogue/journal/1370" title="Playboy">
-                            <div class="lazy" data-original="http://pressa.ru/media/covers/playboy/2018/124652/170-220/cover.png" style="background-image: url('/images/smallplaceholder.png'); width: 170px; height: 220px;"></div>
-                            <h3 class="title">Playboy <span class="date">№04-2018, 06 Сентября 2018</span></h3>
+                            <div class="lazy" data-original="static/data/{{i.journal_id}}/{{ i.id }}/170-220.png" style="background-image: url('/images/smallplaceholder.png'); width: 170px; height: 220px;"></div>
+                            <h3 class="title">{{ i.journal_name }} <span class="date">{{ i.name }}, {{ i.release_date }}  </span></h3>
                                                                 <span class="newsIcons">
                                         <img class="newsTypeIcon" src="/images/i_text.png"/>
                                         <img class="newsTypeIcon"  src="/images/i_pdf.png"/>
                                 </span>
                                                         </a>
                     </li>
-                                        <li class="journal col-md-3 col-sm-4 col-xs-12">
-                        <a href="/catalogue/journal/1931" title="Forbes">
-                            <div class="lazy" data-original="http://pressa.ru/media/covers/forbes/2018/124651/170-220/cover.png" style="background-image: url('/images/smallplaceholder.png'); width: 170px; height: 220px;"></div>
-                            <h3 class="title">Forbes <span class="date">№09-2018, 05 Сентября 2018</span></h3>
-                                                                <span class="newsIcons">
-                                        <img class="newsTypeIcon" src="/images/i_text.png"/>
-                                        <img class="newsTypeIcon"  src="/images/i_pdf.png"/>
-                                </span>
-                                                        </a>
-                    </li>
-                                        <li class="journal col-md-3 col-sm-4 col-xs-12">
-                        <a href="/catalogue/journal/1504" title="GQ">
-                            <div class="lazy" data-original="http://pressa.ru/media/covers/gq/2018/124873/170-220/cover.png" style="background-image: url('/images/smallplaceholder.png'); width: 170px; height: 220px;"></div>
-                            <h3 class="title">GQ <span class="date">№10-2018, 12 Сентября 2018</span></h3>
-                                                                <span class="newsIcons">
-                                        <img class="newsTypeIcon" src="/images/i_text.png"/>
-                                        <img class="newsTypeIcon"  src="/images/i_pdf.png"/>
-                                </span>
-                                                        </a>
-                    </li>
-                                        <li class="journal col-md-3 col-sm-4 col-xs-12">
-                        <a href="/catalogue/journal/1503" title="Vogue">
-                            <div class="lazy" data-original="http://pressa.ru/media/covers/Vogue/2018/124874/170-220/cover.png" style="background-image: url('/images/smallplaceholder.png'); width: 170px; height: 220px;"></div>
-                            <h3 class="title">Vogue <span class="date">№10-2018, 13 Сентября 2018</span></h3>
-                                                                <span class="newsIcons">
-                                        <img class="newsTypeIcon" src="/images/i_text.png"/>
-                                        <img class="newsTypeIcon"  src="/images/i_pdf.png"/>
-                                </span>
-                                                        </a>
-                    </li>
-                                        <li class="journal col-md-3 col-sm-4 col-xs-12">
-                        <a href="/catalogue/journal/14" title="Maxim">
-                            <div class="lazy" data-original="http://pressa.ru/media/covers/maxim/2018/124955/170-220/cover.png" style="background-image: url('/images/smallplaceholder.png'); width: 170px; height: 220px;"></div>
-                            <h3 class="title">Maxim <span class="date">№10-2018, 14 Сентября 2018</span></h3>
-                                                                <span class="newsIcons">
-                                        <img class="newsTypeIcon" src="/images/i_text.png"/>
-                                        <img class="newsTypeIcon"  src="/images/i_pdf.png"/>
-                                </span>
-                                                        </a>
-                    </li>
-                                        <li class="journal col-md-3 col-sm-4 col-xs-12">
-                        <a href="/catalogue/journal/120" title="Караван Историй">
-                            <div class="lazy" data-original="http://pressa.ru/media/covers/karavan-istorij/2018/124145/170-220/cover.png" style="background-image: url('/images/smallplaceholder.png'); width: 170px; height: 220px;"></div>
-                            <h3 class="title">Караван Историй <span class="date">№09-2018, 20 Августа 2018</span></h3>
-                                                                <span class="newsIcons">
-                                        <img class="newsTypeIcon" src="/images/i_text.png"/>
-                                        <img class="newsTypeIcon"  src="/images/i_pdf.png"/>
-                                </span>
-                                                        </a>
-                    </li>
-                                        <li class="journal col-md-3 col-sm-4 col-xs-12">
-                        <a href="/catalogue/journal/1793" title="Телепрограмма">
-                            <div class="lazy" data-original="http://pressa.ru/media/covers/teleprogramma/2018/124811/170-220/cover.png" style="background-image: url('/images/smallplaceholder.png'); width: 170px; height: 220px;"></div>
-                            <h3 class="title">Телепрограмма <span class="date">№37-2018, 12 Сентября 2018</span></h3>
-                                                        </a>
-                    </li>
-                                        <li class="journal col-md-3 col-sm-4 col-xs-12">
-                        <a href="/catalogue/journal/3" title="Cosmopolitan">
-                            <div class="lazy" data-original="http://pressa.ru/media/covers/cosmopolitan/2018/123540/170-220/cover.png" style="background-image: url('/images/smallplaceholder.png'); width: 170px; height: 220px;"></div>
-                            <h3 class="title">Cosmopolitan <span class="date">№09-2018, 14 Августа 2018</span></h3>
-                                                        </a>
-                    </li>
-                                        <li class="journal col-md-3 col-sm-4 col-xs-12">
-                        <a href="/catalogue/journal/1916" title="Verena">
-                            <div class="lazy" data-original="http://pressa.ru/media/covers/verena/2018/124181/170-220/cover.png" style="background-image: url('/images/smallplaceholder.png'); width: 170px; height: 220px;"></div>
-                            <h3 class="title">Verena <span class="date">№03-2018, 23 Августа 2018</span></h3>
-                                                                <span class="newsIcons">
-                                        <img class="newsTypeIcon" src="/images/i_text.png"/>
-                                        <img class="newsTypeIcon"  src="/images/i_pdf.png"/>
-                                </span>
-                                                        </a>
-                    </li>
-                                        <li class="journal col-md-3 col-sm-4 col-xs-12">
-                        <a href="/catalogue/journal/1505" title="Architectural Digest/Ad">
-                            <div class="lazy" data-original="http://pressa.ru/media/covers/architectural-digestad/2018/124868/170-220/cover.png" style="background-image: url('/images/smallplaceholder.png'); width: 170px; height: 220px;"></div>
-                            <h3 class="title">Architectural Digest/Ad <span class="date">№10-2018, 12 Сентября 2018</span></h3>
-                                                        </a>
-                    </li>
-                                        <li class="journal col-md-3 col-sm-4 col-xs-12">
-                        <a href="/catalogue/journal/1921" title="Сабрина">
-                            <div class="lazy" data-original="http://pressa.ru/media/covers/sabrina/2018/124180/170-220/cover.png" style="background-image: url('/images/smallplaceholder.png'); width: 170px; height: 220px;"></div>
-                            <h3 class="title">Сабрина <span class="date">№09-2018, 23 Августа 2018</span></h3>
-                                                        </a>
-                    </li>
-                                        <li class="journal col-md-3 col-sm-4 col-xs-12">
-                        <a href="/catalogue/journal/90" title="National Geographic">
-                            <div class="lazy" data-original="http://pressa.ru/media/covers/national-geographic/2018/124536/170-220/cover.png" style="background-image: url('/images/smallplaceholder.png'); width: 170px; height: 220px;"></div>
-                            <h3 class="title">National Geographic <span class="date">№09-2018, 01 Сентября 2018</span></h3>
-                                                                <span class="newsIcons">
-                                        <img class="newsTypeIcon" src="/images/i_text.png"/>
-                                        <img class="newsTypeIcon"  src="/images/i_pdf.png"/>
-                                </span>
-                                                        </a>
-                    </li>
-                                        <li class="journal col-md-3 col-sm-4 col-xs-12">
-                        <a href="/catalogue/journal/1639" title="L'Officiel">
-                            <div class="lazy" data-original="http://pressa.ru/media/covers/lofficiel/2018/124587/170-220/cover.png" style="background-image: url('/images/smallplaceholder.png'); width: 170px; height: 220px;"></div>
-                            <h3 class="title">L'Officiel <span class="date">№09-2018, 04 Сентября 2018</span></h3>
-                                                                <span class="newsIcons">
-                                        <img class="newsTypeIcon" src="/images/i_text.png"/>
-                                        <img class="newsTypeIcon"  src="/images/i_pdf.png"/>
-                                </span>
-                                                        </a>
-                    </li>
-                                        <li class="journal col-md-3 col-sm-4 col-xs-12">
-                        <a href="/catalogue/journal/125" title="Коммерсантъ (понедельник-пятница)">
-                            <div class="lazy" data-original="http://pressa.ru/media/covers/kommersant/2018/125046/170-220/cover.png" style="background-image: url('/images/smallplaceholder.png'); width: 170px; height: 220px;"></div>
-                            <h3 class="title">Коммерсантъ (понедельник-пятница) <span class="date">№168п-2018, 17 Сентября 2018</span></h3>
-                                                                <span class="newsIcons">
-                                        <img class="newsTypeIcon" src="/images/i_text.png"/>
-                                        <img class="newsTypeIcon"  src="/images/i_pdf.png"/>
-                                </span>
-                                                        </a>
-                    </li>
-                                        <li class="journal col-md-3 col-sm-4 col-xs-12">
-                        <a href="/catalogue/journal/1378" title="Автомир">
-                            <div class="lazy" data-original="http://pressa.ru/media/covers/avtomir/2018/124905/170-220/cover.png" style="background-image: url('/images/smallplaceholder.png'); width: 170px; height: 220px;"></div>
-                            <h3 class="title">Автомир <span class="date">№38-2018, 13 Сентября 2018</span></h3>
-                                                        </a>
-                    </li>
-                                        <li class="journal col-md-3 col-sm-4 col-xs-12">
-                        <a href="/catalogue/journal/1229" title="Правда">
-                            <div class="lazy" data-original="http://pressa.ru/media/covers/pravda/2018/124932/170-220/cover.png" style="background-image: url('/images/smallplaceholder.png'); width: 170px; height: 220px;"></div>
-                            <h3 class="title">Правда <span class="date">№100-2018, 14 Сентября 2018</span></h3>
-                                                        </a>
-                    </li>
+                    {% endfor %}
+                                       
                                 </ul>
         </div>
     </div>
@@ -410,7 +210,7 @@
             {% endfor %}
         </ul>
     </div>
-</nav>
+</nav> 
 
 
 {% endblock %}

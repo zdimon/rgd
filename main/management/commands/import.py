@@ -4,12 +4,14 @@ from django.core.management.base import BaseCommand, CommandError
 import json
 from rgd.settings import BASE_DIR
 import os
+import sys
 from main.models import *
 import requests
 import os.path
 import time
 import json
 import datetime
+import urllib
 
 def makeRequest(url):
     try:
@@ -103,6 +105,31 @@ def createIssueImageList():
         })    
     return lst
 
+'''
+cover
+thumb
+mobile_cover
+'''
+
+def saveFile(path,source):
+    output = open(path,"wb")
+    output.write(source)
+    output.close()
+
+def saveImages(lst):  
+    for i in lst:
+        print  i['mobile_cover']
+        path = '%s/static/data/%s/%s/%s.png' % (BASE_DIR,i['journal_id'],i['issue_id'],'520-680')
+        saveFile(path,urllib.urlopen(i['mobile_cover']).read())
+        print  i['cover']
+        path = '%s/static/data/%s/%s/%s.png' % (BASE_DIR,i['journal_id'],i['issue_id'],'306-433')
+        saveFile(path,urllib.urlopen(i['cover']).read())   
+        print  i['thumb']
+        path = '%s/static/data/%s/%s/%s.png' % (BASE_DIR,i['journal_id'],i['issue_id'],'170-220')
+        saveFile(path,urllib.urlopen(i['thumb']).read())    
+        #break
+    
+
 def importMedia():
     dir = BASE_DIR+'/static/data'
     if not os.path.exists(dir):
@@ -114,6 +141,8 @@ def importMedia():
         di = dj+'/'+str(i['issue_id'])
         if not os.path.exists(di):
             os.makedirs(di)   
+    lst = createIssueImageList()
+    saveImages(lst)
 
         
 
