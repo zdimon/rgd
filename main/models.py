@@ -50,8 +50,7 @@ class Issue(models.Model):
 class Theme(models.Model):
     id = models.IntegerField(primary_key=True)  # AutoField?
     name = models.CharField(max_length=250, blank=True, null=True)
-    uid = models.IntegerField()
-
+    
 
 
 
