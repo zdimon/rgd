@@ -16,7 +16,10 @@
             {% endfor %}          
     </ul>
 
-</section><div class="newsBackground">
+</section>
+
+{% if topArticles %}
+<div class="newsBackground">
 <div class="container">
     <h2 class="no_bottom_line">
         <div class="row">
@@ -54,8 +57,10 @@
     </div>
 </div>
 </div>
-<section id="pop" class="main">
+{% endif %}
 
+{% if new %}
+<section id="pop" class="main">
 <div class="container">
     <h2>Популярное</h2>
     <div class="scroller">
@@ -82,7 +87,7 @@
     </div>
 </div>
 </section>
-
+{% endif %}
 
 {% endblock %}
 
@@ -91,7 +96,7 @@
     <div class="container">
         <ul class="nav nav-pills">
             {% for t in themes %}
-                <li class="category "><a href="/catalogue/category/{{ t.id }}">{{ t.name }}</a></li>
+                <li class="category "><a href="/category/{{ t.id }}">{{ t.name }}</a></li>
             {% endfor %}
         </ul>
     </div>

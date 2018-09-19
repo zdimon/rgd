@@ -22,6 +22,7 @@ def makeRequest(url):
 
 def importTopJournal():
     date = datetime.date.today()
+    TopJournal.objects.filter(date=date).delete()
     print 'Start importing TOP Journal'
     url = 'http://pressa.ru/zd/top.json'
     txt = makeRequest(url)
@@ -73,6 +74,10 @@ def importCatalog():
             nj.mobile_cover = arr['categories'][a]['journals'][j]['mobile_cover']
             nj.mobile_thumb = arr['categories'][a]['journals'][j]['mobile_thumb']
             nj.save()
+            t2j = Theme2Journal()
+            t2j.journal = nj
+            t2j.theme = cat
+            t2j.save()
             print 'Saving %s' % nj.name
             for i in arr['categories'][a]['journals'][j]['issues']:
 
@@ -155,7 +160,7 @@ def saveImagesTopArticle(date):
         print path
         
 
-def getTopArticles():
+def importTopArticles():
     dir = BASE_DIR+'/static/data/top10'
     if not os.path.exists(dir):
         os.makedirs(dir) 
@@ -199,7 +204,7 @@ def getTopArticles():
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        #importTopJournal()
-        #importCatalog()
-        #importMedia()
-        getTopArticles()
+        importTopJournal()
+        importCatalog()
+        importMedia()
+        importTopArticles()

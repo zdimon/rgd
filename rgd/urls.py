@@ -20,5 +20,6 @@ from main.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^category/(?P<id>\d+)$', category),
     url(r'^$', home, name='home')
 ]

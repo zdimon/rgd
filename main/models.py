@@ -27,7 +27,8 @@ class Journal(models.Model):
     mobile_cover = models.CharField(max_length=250, blank=True, null=True)
     mobile_thumb = models.CharField(max_length=250, blank=True, null=True)
     thumb = models.CharField(max_length=250, blank=True, null=True)
-
+    def __str__(self):
+        return self.name.encode('utf-8')
 
 
 
@@ -50,6 +51,9 @@ class Issue(models.Model):
 class Theme(models.Model):
     id = models.IntegerField(primary_key=True)  # AutoField?
     name = models.CharField(max_length=250, blank=True, null=True)
+
+    def __str__(self):
+        return self.name.encode('utf-8')
     
 
 
