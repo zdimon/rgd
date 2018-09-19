@@ -4,6 +4,8 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from .models import *
 import datetime
+from rgd.settings import BASE_DIR
+import json
 # Create your views here.
 
 def getNew():
@@ -30,7 +32,28 @@ def getTop(lst):
     return out
    
 
-    
+def getTopArticles():
+    dir = BASE_DIR+'/static/data/top10'
+    if not os.path.exists(dir):
+        os.makedirs(dir) 
+    out = []
+    date = datetime.date.today()
+    def inner(date):
+        url = 'http://pressa.ru/mts/api/top10/%s.json' % (date.strftime("%Y-%m-%d"))
+        print url
+        rez = json.loads(makeRequest(url))
+        if len(rez['articles'])==0:
+            date = date - datetime.timedelta(days=1)
+            inner(date)        
+        else:
+            for i in rez['articles']:
+                out.append(i)
+    inner(date)
+    path = '%s/%s.json' % (dir,date.strftime("%Y-%m-%d"))
+    f = open(path,'w')
+    f.write(json.dumps(out))
+    f.close()
+    return out    
 
 
 def home(request):

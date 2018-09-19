@@ -146,10 +146,36 @@ def importMedia():
 
         
 
+def getTopArticles():
+    dir = BASE_DIR+'/static/data/top10'
+    if not os.path.exists(dir):
+        os.makedirs(dir) 
+    out = []
+    date = datetime.date.today()
+    def inner(date):
+        url = 'http://pressa.ru/mts/api/top10/%s.json' % (date.strftime("%Y-%m-%d"))
+        print url
+        rez = json.loads(makeRequest(url))
+        if len(rez['articles'])==0:
+            date = date - datetime.timedelta(days=1)
+            inner(date)        
+        else:
+            for i in rez['articles']:
+                out.append(i)
+    inner(date)
+    path = '%s/%s.json' % (dir,date.strftime("%Y-%m-%d"))
+    f = open(path,'w')
+    f.write(json.dumps(out))
+    f.close()
+    return out
+
+
+
 
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        importTopJournal()
-        importCatalog()
-        importMedia()
+        #importTopJournal()
+        #importCatalog()
+        #importMedia()
+        getTopArticles()

@@ -60,5 +60,19 @@ class Theme2Journal(models.Model):
     theme = models.ForeignKey(Theme, models.DO_NOTHING)
 
 
-
+class TopArticles(models.Model):
+    author = models.CharField(max_length=250)
+    text = models.TextField()
+    text_continue = models.TextField()
+    small_image_square = models.CharField(max_length=250)
+    image = models.CharField(max_length=250)
+    short_text = models.TextField()
+    reader_url = models.CharField(max_length=250)
+    title = models.CharField(max_length=250)
+    small_image_portrait = models.CharField(max_length=250)
+    small_image = models.CharField(max_length=250)
+    issue_id = models.IntegerField()
+    issue = models.CharField(max_length=250)
+    journal = models.CharField(max_length=250)
+    date = models.DateField()
 
