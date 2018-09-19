@@ -41,6 +41,7 @@ def importTheme():
         print 'saving %s' % t['name']
         t = Theme()
         t.id = t['id']
+        t.name = t['name']
         t.save()
 
 
