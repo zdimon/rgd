@@ -39,10 +39,10 @@ def importTheme():
     Theme.objects.all().delete()
     for t in catalog:
         print 'saving %s' % t['name']
-        t = Theme()
-        t.id = int(t['id'])
-        t.name = t['name']
-        t.save()
+        tm = Theme()
+        tm.id = int(t['id'])
+        tm.name = t['name']
+        tm.save()
 
 
 
