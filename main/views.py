@@ -92,3 +92,10 @@ def top_detail(request,id):
     topArticles = getTopArticles(id)
     cnx = {'top': top, 'topArticles': topArticles}
     return render(request,'top_detail.html',cnx)    
+
+
+def journal_detail(request,id):
+    issue = Issue.objects.get(pk=id)
+    others = Issue.objects.filter(journal=issue.journal).exclude(pk=issue.id)
+    cnx = {'i': issue, 'others': others}
+    return render(request,'journal_detail.html',cnx) 

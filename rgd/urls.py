@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^category/(?P<id>\d+)$', category),
     url(r'^top/(?P<id>\d+)$', top_detail),
+    url(r'^journal/(?P<id>\d+)$', journal_detail),
     url(r'^$', home, name='home')
 ]
