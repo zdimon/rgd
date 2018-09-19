@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<section id="news_wrapper" class="news_wrapper">
+		<div class="container">
+			<hr class="first"/>
+			<h2 class="issueTitle">{{ top.title }}</h2>
+			<div class="row">
+				<div class="col-md-12 col-xs-12">
+					<div class="picture">
+						<br/>
+						<img src="/static/data/top10/{{top.id}}.png" alt="" />						<br/>
+						<div class="col-xs-12">
+							<p class="journalName">"{{ top.journal }}" №{{ top.issue }}</p>
+						</div>
+					</div>
+					<div class="text">
+                            {{ top.text_continue | safe}}
+                    </div>
+                            
+                        </div>
+                        <!--
+                        <div class="subscribebutton" >
+                            <a class="subscribe danger" href="/reader/#/magazines/vechernyaya-moskva-/issues/172-2018/pages/4/">Читать весь номер</a> 
+                        </div>
+                        -->
+                        <div style="clear: both"></div>
+                        <hr class="second"/>
+                        
+                    </div>
+
+
+
+
+{% if topArticles %}
+<div class="newsBackground">
+<div class="container">
+    <h2 class="no_bottom_line">
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                Сегодня в прессе
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <!--
+                <div class='input-group date newsDatepicker' id="newsDatepicker">
+                    <input type="hidden" name="newsDatepicker" value="2018-09-17"/>
+                    <i class="glyphicon glyphicon-calendar"></i> <a href="#">Выбрать дату</a>
+                </div>
+                -->
+            </div>
+        </div>
+    </h2>
+    <div class="scroller">
+        <section id="n_slider">
+            <ul class="slider">
+                {% for i in topArticles %}
+                    <li class="journal">
+                        <div class="wrap">
+                            <a href="/top/{{ i.id }}" title="{{ i.title }}">
+                                <div class="lazy" data-original="/static/data/top10/{{i.id}}.png" style="background-image: url('/images/smallplaceholder.png'); width: 247px; height: 180px;"></div>
+                                <p class="title">{{i.title}}<span class="newsIcons">
+                                                                                                                                                            <img class="newsTypeIcon"  src="/static/images/i_pdf.png"/>
+                                                                                    
+                                    </span>
+                                </p>
+                                <p class="issue">{{ i.journal }} {{ i.issue }}</p>
+                            </a>
+                        </div>
+                    </li>
+                {% endfor %}            
+                </ul>
+        </section>
+    </div>
+</div>
+</div>
+{% endif %}
+
+
+
+{% endblock %}

@@ -53,7 +53,7 @@ def getTop(theme=None):
     return out
    
 
-def getTopArticles():
+def getTopArticles(exep=None):
     
     out = []
     date = datetime.date.today()
@@ -64,7 +64,8 @@ def getTopArticles():
             inner(date)        
         else:
             for i in items:
-                out.append(i)
+                if i.id!=int(exep):
+                    out.append(i)
     inner(date)
     return out    
 
@@ -85,3 +86,9 @@ def category(request,id):
     top = getTop(id)
     cnx = {'themes': themes, 'top': top}
     return render(request,'home.html',cnx)
+
+def top_detail(request,id):
+    top = TopArticles.objects.get(pk=id)
+    topArticles = getTopArticles(id)
+    cnx = {'top': top, 'topArticles': topArticles}
+    return render(request,'top_detail.html',cnx)    

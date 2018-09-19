@@ -27,10 +27,12 @@
                 Сегодня в прессе
             </div>
             <div class="col-md-6 col-xs-12">
+                <!--
                 <div class='input-group date newsDatepicker' id="newsDatepicker">
                     <input type="hidden" name="newsDatepicker" value="2018-09-17"/>
                     <i class="glyphicon glyphicon-calendar"></i> <a href="#">Выбрать дату</a>
                 </div>
+                -->
             </div>
         </div>
     </h2>
@@ -40,7 +42,7 @@
                 {% for i in topArticles %}
                     <li class="journal">
                         <div class="wrap">
-                            <a href="/catalogue/news/2018-09-17/125052" title="Технологии вышли на экспорт">
+                            <a href="/top/{{ i.id }}" title="{{ i.title }}">
                                 <div class="lazy" data-original="/static/data/top10/{{i.id}}.png" style="background-image: url('/images/smallplaceholder.png'); width: 247px; height: 180px;"></div>
                                 <p class="title">{{i.title}}<span class="newsIcons">
                                                                                                                                                             <img class="newsTypeIcon"  src="/static/images/i_pdf.png"/>
