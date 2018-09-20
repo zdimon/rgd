@@ -247,7 +247,7 @@ def importArticles():
 
 def importPdfs():
     print 'Importing pdfs'
-    for i in Issue.objects.all():
+    for i in Issue.objects.filter(is_downloaded=False, has_articles=False):
         path = '%s/static/data/%s/%s/journal.pdf' % (BASE_DIR,i.journal.id,i.id)
         
         sign = hashlib.md5(str(i.id)+SUPER_PDF_PROTECTION).hexdigest() 
@@ -255,6 +255,8 @@ def importPdfs():
         print 'Download to %s' % path
         print url
         saveFile(path,urllib.urlopen(url).read())
+        i.is_downloaded = True
+        i.save()
 
 
 class Command(BaseCommand):

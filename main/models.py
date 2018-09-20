@@ -44,6 +44,7 @@ class Issue(models.Model):
     mobile_thumb = models.CharField(max_length=250, blank=True, null=True)
     release_date = models.DateField()
     thumb = models.CharField(max_length=250, blank=True, null=True)
+    is_downloaded = models.BooleanField(default=False)
 
 
 
