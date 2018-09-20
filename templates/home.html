@@ -23,7 +23,7 @@
 <div class="container">
     <h2 class="no_bottom_line">
         <div class="row">
-            <div class="col-md-6 col-xs-12">
+            <div class="col-md-12 col-xs-12" style="color: black; text-align: center ">
                 Сегодня в прессе
             </div>
             <div class="col-md-6 col-xs-12">
@@ -64,7 +64,7 @@
 {% if new %}
 <section id="pop" class="main">
 <div class="container">
-    <h2>Популярное</h2>
+    
     <div class="scroller">
         <div>
                 
@@ -93,14 +93,17 @@
 
 {% endblock %}
 
+
 {% block themes %}
-<nav id="categories" class="hidden-xs">
-    <div class="container">
-        <ul class="nav nav-pills">
-            {% for t in themes %}
-                <li class="category "><a href="/category/{{ t.id }}">{{ t.name }}</a></li>
-            {% endfor %}
-        </ul>
-    </div>
-</nav> 
+    {% if categories %}
+        <nav id="categories" class="hidden-xs">
+            <div class="container">
+                <ul class="nav nav-pills">
+                    {% for t in categories %}
+                        <li class="category "><a href="/category/{{ t.id }}">{{ t.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </nav> 
+    {% endif %}
 {% endblock %}

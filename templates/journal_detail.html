@@ -97,14 +97,16 @@
 
 
 {% block themes %}
-<nav id="categories" class="hidden-xs">
-    <div class="container">
-        <ul class="nav nav-pills">
-            {% for t in themes %}
-                <li class="category "><a href="/category/{{ t.id }}">{{ t.name }}</a></li>
-            {% endfor %}
-        </ul>
-    </div>
-</nav> 
+    {% if categories %}
+    <nav id="categories" class="hidden-xs">
+        <div class="container">
+            <ul class="nav nav-pills">
+                {% for t in categories %}
+                    <li class="category "><a href="/category/{{ t.id }}">{{ t.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </nav> 
+    {% endif  %}
 {% endblock %}
 
