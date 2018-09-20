@@ -1,6 +1,6 @@
 echo Input key
 read key
-echo 'SUPER_PDF_PROTECTION = '$key >> rgd/local.py
+echo "SUPER_PDF_PROTECTION = '$key'" > rgd/local.py
 virtualenv ve
 . ./ve/bin/activate
 pip install -r requirements.txt
