@@ -262,9 +262,9 @@ def importPdfs():
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        #importTopJournal()
-        #importCatalog()
-        #importMedia()
-        #importTopArticles()
-        #importArticles()
+        importTopJournal()
+        importCatalog()
+        importMedia()
+        importTopArticles()
+        importArticles()
         importPdfs()
