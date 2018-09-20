@@ -17,7 +17,7 @@
 
 
 
-
+                    {% if i.has_articles %}
                         <div class="col-md-9 col-xs-12">
                             <h2>Содержание</h2>
                             <div class="journalArticles">
@@ -40,7 +40,8 @@
                                     {% endfor %}
 
                                 </div>
-                            </div>
+                        </div>
+                    {% endif %}
     </div>
 </section>
 

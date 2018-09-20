@@ -39,6 +39,28 @@
 
 <body>	
 
+		        <nav id="side-menu" class="visible-xs-block side-menu">
+				<a href="#" class="btn btn-link">
+					<i class="icon icon-w icon-close pull-right"></i>
+				</a>
+				<div class="container">
+					
+					<ul class="nav nav-stack">
+						{% for c in categories %}
+						<li class="category"><a href="/category/{{ c.id }}">{{ c.name }}</a></li>
+						{% endfor %}
+					</ul>
+					<hr />
+		
+					
+					<p class="text-center">
+						<br/><img src="/static/images/18.png" width="23px" height="23px"/>
+					</p>
+		
+				</div>
+			</nav>
+
+
 	
 	<div class="image-preloader"></div>
     
@@ -83,11 +105,9 @@
 						<i class="icon icon-w icon-bars"></i>
 					</a>
 	
-					<div class="col-xs-6 logo text-center"><a href="/"><img alt="" src="/static/images/logom.png"></a></div>
+					
 	
-					<a href="#" class="col-xs-3 search text-right">
-						<i class="icon icon-w icon-search"></i>
-					</a>
+					
 				</div>
 			</div>	
 		</header>
