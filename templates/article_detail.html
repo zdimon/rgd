@@ -5,8 +5,11 @@
 <section id="news_wrapper" class="news_wrapper">
         <div class="container">
             
-                <a href="/journal/{{ article.issue.id }}" class="contents">Содержание</a>
-
+                <div>
+                    <a href="/article/prev/{{ article.id }}" style="display: inline-block"><img src="/static/images/contents_l_arr.png"/></a>
+                    <a  style="display: inline-block" href="/journal/{{ article.issue.id }}" class="contents">Содержание</a>
+                    <a href="/article/next/{{ article.id }}" style="display: inline-block"><img src="/static/images/contents_r_arr.png"/></a>
+                </div>
             
 
             <h2 class="issueTitle">{{ article.title }}</h2>
