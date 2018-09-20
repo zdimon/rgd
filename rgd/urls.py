@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^category/(?P<id>\d+)$', category),
     url(r'^top/(?P<id>\d+)$', top_detail),
     url(r'^journal/(?P<id>\d+)$', journal_detail),
+    url(r'^article/(?P<id>\d+)$', article_detail),
     url(r'^$', home, name='home')
 ]

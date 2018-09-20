@@ -1,44 +1,57 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<section>
-		<div id="singlebackwrapper">
-			<div class="container" id="journal-number">
-				<div class="row clearfix">
-					<div class="col-sm-4 image">
-						<div class="lazy" data-original="/static/data/{{ i.journal.id }}/{{ i.id }}/520-680.png" style="background-image: url('/static/images/bigplaceholder.png') center center; width: 330px; height: 450px;"></div>
-					</div>
-					<div class="col-sm-8">
-						<div class="top titledate">
-							<div class="title">{{ i.journal_name }}</div>
-							<div class="date">№{{ i.name }}, {{ i.release_date }}</div>
-							<p>
-                                {{ i.journal.description }}
-                            </p>
-						</div>
-						
-														<div class="row-fluid bottom">
-								<div class="bottom">
-                                        <!--
-                                        <div class="subscribebutton">
-                                                        
-												<a href="http://pressa.mts.ru:8080" class="subscribe danger">Подписаться</a>
-																						8,47 рублей в день
+
+<section class="journalContents">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-xs-12">
+
+                        <div class="lazy" data-original="/static/data/{{ i.journal.id }}/{{ i.id }}/520-680.png" style="background-image: url('/static/images/bigplaceholder.png'); width: 270px; height: 370px;"></div>
+                        <p class="journalTitle">{{ i.journal_name }}</p>
+                        <p class="journalDate"><span class="date">№{{ i.name }}, {{ i.release_date }}</span></p>
+
+                    <p class="journalDescription">{{ i.journal.description }}</p>
+                </div>
+
+
+
+
+
+                        <div class="col-md-9 col-xs-12">
+                            <h2>Содержание</h2>
+                            <div class="journalArticles">
+
+                                    <div class="row">
+                                            <div class="col-md-12">
+                                                <hr/>
+                                            </div>
                                         </div>
-                                        -->
-									 
-									<div class="readbutton">
-										
-																				<a href="/reader/#/magazines/geolyonok/issues/07-08-2018/pages/1/"  class="read btn_gray" id="read">Читать</a>
-										{{ i.amount_of_pages }} стр.									</div>
-								</div>
-							</div>
-					</div>
+
+                                    {% for a in articles %}
+                                    <div class="row">
+                                        <div class="col-md-4 col-xs-12">
+                                            <div class="lazy" data-original="/static/data/articles/{{ a.id }}/image.png" style="background-image: url('/static/images/lazybg_hor.png'); width: 270px; min-height: 180px;"></div>
+                                        </div>
+                                        <div class="col-md-8 col-xs-12">
+                                            <a href="/article/{{ a.id }}"><h2>{{ a.title }}</h2></a>									<p>{{ a.short_text }}...</p>
+                                                                            </div>
+                                    </div>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
 					
-				</div>
-			</div>
-		</div>
-    </section>
     
 
 

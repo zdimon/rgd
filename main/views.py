@@ -97,5 +97,12 @@ def top_detail(request,id):
 def journal_detail(request,id):
     issue = Issue.objects.get(pk=id)
     others = Issue.objects.filter(journal=issue.journal).exclude(pk=issue.id)
-    cnx = {'i': issue, 'others': others}
+    articles = Articles.objects.filter(issue=issue)
+    cnx = {'i': issue, 'others': others, 'articles': articles}
     return render(request,'journal_detail.html',cnx) 
+
+def article_detail(request,id):
+    article = Articles.objects.get(pk=id)
+    themes = Theme.objects.all()
+    cnx = {'article': article, 'themes': themes}
+    return render(request,'article_detail.html',cnx) 

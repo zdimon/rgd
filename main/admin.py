@@ -39,3 +39,8 @@ class Theme2JournalAdmin(admin.ModelAdmin):
     list_display = ('journal','theme')
    
 admin.site.register(Theme2Journal, Theme2JournalAdmin)
+
+class ArticleslAdmin(admin.ModelAdmin):
+    list_display = ('title','issue')
+   
+admin.site.register(Articles, ArticleslAdmin)

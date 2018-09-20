@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<section id="news_wrapper" class="news_wrapper">
+        <div class="container">
+            
+                <a href="/journal/{{ article.issue.id }}" class="contents">Содержание</a>
+
+            
+
+            <h2 class="issueTitle">{{ article.title }}</h2>
+			<div class="row">
+				<div class="col-md-12 col-xs-12">
+					<div class="picture">
+						<br/>
+						<img src="/static/data/articles/{{article.id}}/image.png" alt="" />						<br/>
+						<div class="col-xs-12">
+							<p class="journalName">"{{ article.issue.journal.name }}" №{{ article.issue.name }}</p>
+						</div>
+					</div>
+					<div class="text">
+                            {{ article.text | safe }}
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+</section>    
+
+{% endblock %}
+
+
+{% block themes %}
+<nav id="categories" class="hidden-xs">
+    <div class="container">
+        <ul class="nav nav-pills">
+            {% for t in themes %}
+                <li class="category "><a href="/category/{{ t.id }}">{{ t.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav> 
+{% endblock %}

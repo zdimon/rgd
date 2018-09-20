@@ -60,8 +60,8 @@ class Theme(models.Model):
 
 class Theme2Journal(models.Model):
     id = models.IntegerField(primary_key=True)  # AutoField?
-    journal = models.ForeignKey(Journal, models.DO_NOTHING)
-    theme = models.ForeignKey(Theme, models.DO_NOTHING)
+    journal = models.ForeignKey(Journal, models.CASCADE)
+    theme = models.ForeignKey(Theme, models.CASCADE)
 
 
 class TopArticles(models.Model):
@@ -79,4 +79,21 @@ class TopArticles(models.Model):
     issue = models.CharField(max_length=250)
     journal = models.CharField(max_length=250)
     date = models.DateField()
+
+
+
+
+
+class Articles(models.Model):
+    issue = models.ForeignKey(Issue, models.CASCADE)
+    reader_url = models.CharField(max_length=250, blank=True, null=True)
+    title = models.CharField(max_length=250, blank=True, null=True)
+    text = models.TextField()
+    image = models.CharField(max_length=250, blank=True, null=True)
+    author = models.CharField(max_length=250, blank=True, null=True)
+    small_image = models.CharField(max_length=250, blank=True, null=True)
+    square_image = models.CharField(max_length=250, blank=True, null=True)
+    short_text = models.CharField(max_length=250, blank=True, null=True)
+    page = models.CharField(max_length=250, blank=True, null=True)
+
 

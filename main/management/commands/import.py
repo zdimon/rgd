@@ -198,15 +198,57 @@ def importTopArticles():
     saveImagesTopArticle(date)
     return out
 
+def importImageArticle(art):
+    path = BASE_DIR+'/static/data/articles/%s' % art.id
+    if not os.path.exists(path):
+        os.makedirs(path)     
+    path = '%s/static/data/articles/%s/square_image.png' % (BASE_DIR,art.id)
+    saveFile(path,urllib.urlopen(art.square_image).read())
+    print path
+    path = '%s/static/data/articles/%s/small_image.png' % (BASE_DIR,art.id)
+    saveFile(path,urllib.urlopen(art.small_image).read())
+    print path
+    path = '%s/static/data/articles/%s/image.png' % (BASE_DIR,art.id)
+    saveFile(path,urllib.urlopen(art.image).read())
+    print path
+    
+
 
 def importArticles():
+    dir = BASE_DIR+'/static/data/articles'
+    if not os.path.exists(dir):
+        os.makedirs(dir)
     print 'Import articles'
+    for i in Issue.objects.all():
+        if i.has_articles == True:
+            Articles.objects.filter(issue=i).delete()
+            print 'Processing....%s' % i.id
+            url = 'http://pressa.ru/zd/txt/%s.json' % i.id
+            txt = makeRequest(url)
+            arr = json.loads(txt)
+            for it in arr['articles']:
+                print it['title']
+                a = Articles()
+                a.issue = i
+                a.reader_url = it['reader_url']
+                a.title = it['title']
+                a.text = it['text']
+                a.image = it['image']
+                a.author = it['author']
+                a.small_image = it['small_image']
+                a.square_image = it['square_image']
+                a.short_text = it['short_text']
+                a.page = it['page'] 
+                a.save()
+                importImageArticle(a)
+            #break
 
 
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        #importTopJournal()
-        #importCatalog()
-        #importMedia()
-        #importTopArticles()
+        importTopJournal()
+        importCatalog()
+        importMedia()
+        importTopArticles()
+        importArticles()
