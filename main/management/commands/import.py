@@ -199,12 +199,14 @@ def importTopArticles():
     return out
 
 
+def importArticles():
+    print 'Import articles'
 
 
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        importTopJournal()
-        importCatalog()
-        importMedia()
-        importTopArticles()
+        #importTopJournal()
+        #importCatalog()
+        #importMedia()
+        #importTopArticles()

@@ -7,7 +7,7 @@
     <ul class="slider">
             {% for i in top %}
             <li class="journal">
-                <a href="/catalogue/journal/1504" title="GQ">
+                <a href="/journal/{{ i.issue_id }}" title="GQ">
                     <img src="/static/data/{{i.journal_id}}/{{i.issue_id}}/520-680.png" alt="" />						<span class="title">{{ i.journal_name }}<span class="date">
                                                         </span>
                     </span>
