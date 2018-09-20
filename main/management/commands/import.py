@@ -2,7 +2,7 @@
 #http://office.sud.kz/courtActs/site/lawsuitList.xhtml
 from django.core.management.base import BaseCommand, CommandError
 import json
-from rgd.settings import BASE_DIR
+from rgd.settings import BASE_DIR, SUPER_PDF_PROTECTION
 import os
 import sys
 from main.models import *
@@ -12,6 +12,7 @@ import time
 import json
 import datetime
 import urllib
+import hashlib
 
 def makeRequest(url):
     try:
@@ -244,11 +245,24 @@ def importArticles():
             #break
 
 
+def importPdfs():
+    print 'Importing pdfs'
+    for i in Issue.objects.all():
+        path = '%s/static/data/%s/%s/journal.pdf' % (BASE_DIR,i.journal.id,i.id)
+        
+        sign = hashlib.md5(str(i.id)+SUPER_PDF_PROTECTION).hexdigest() 
+        url = 'http://pressa.ru/zd/getpdf/%s/%s' % (i.id,sign)
+        print 'Download to %s' % path
+        print url
+        saveFile(path,urllib.urlopen(url).read())
+
+
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        importTopJournal()
-        importCatalog()
-        importMedia()
-        importTopArticles()
-        importArticles()
+        #importTopJournal()
+        #importCatalog()
+        #importMedia()
+        #importTopArticles()
+        #importArticles()
+        importPdfs()

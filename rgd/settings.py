@@ -124,3 +124,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
    
 ]
+
+from rgd.local import *
