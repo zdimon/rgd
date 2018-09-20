@@ -10,15 +10,16 @@
                         <div class="lazy" data-original="/static/data/{{ i.journal.id }}/{{ i.id }}/520-680.png" style="background-image: url('/static/images/bigplaceholder.png'); width: 270px; height: 370px;"></div>
                         <p class="journalTitle">{{ i.journal_name }}</p>
                         <p class="journalDate"><span class="date">№{{ i.name }}, {{ i.release_date }}</span></p>
-
-                    <p class="journalDescription">{{ i.journal.description }}</p>
+                        {% if i.has_articles %}
+                            <p class="journalDescription">{{ i.journal.description }}</p>
+                        {% endif %}
                 </div>
 
 
-
+                <div class="col-md-9 col-xs-12">
 
                     {% if i.has_articles %}
-                        <div class="col-md-9 col-xs-12">
+                        
                             <h2>Содержание</h2>
                             <div class="journalArticles">
 
@@ -40,8 +41,17 @@
                                     {% endfor %}
 
                                 </div>
-                        </div>
+                        
+                    {% else %}
+                    <p>{{ i.journal.description | safe }}...</p>
+                    <div class="readbutton" style="padding-top: 30px">
+										
+                            <a style="width: 200px;" href="/static/data/{{ i.journal.id }}/{{ i.id }}/journal.pdf"  class="read btn_gray" id="read">Читать pdf</a>
+                            {{ i.amount_of_pages }} стр.									</div>
+                            
+                            </div>
                     {% endif %}
+                </div>
     </div>
 </section>
 
