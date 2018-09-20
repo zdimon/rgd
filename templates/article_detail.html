@@ -4,11 +4,15 @@
 
 <section id="news_wrapper" class="news_wrapper">
         <div class="container">
-            
+                
                 <div>
-                    <a href="/article/prev/{{ article.id }}" style="display: inline-block"><img src="/static/images/contents_l_arr.png"/></a>
+                    {% if prev %}
+                        <a href="/article/{{ prev.id }}" style="display: inline-block"><img src="/static/images/contents_l_arr.png"/></a>
+                    {% endif %}
                     <a  style="display: inline-block" href="/journal/{{ article.issue.id }}" class="contents">Содержание</a>
-                    <a href="/article/next/{{ article.id }}" style="display: inline-block"><img src="/static/images/contents_r_arr.png"/></a>
+                    {% if next %}
+                        <a href="/article/{{ next.id }}" style="display: inline-block"><img src="/static/images/contents_r_arr.png"/></a>
+                    {% endif %}
                 </div>
             
 

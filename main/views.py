@@ -103,38 +103,21 @@ def journal_detail(request,id):
     return render(request,'journal_detail.html',cnx) 
 
 def article_detail(request,id):
-
+    article = Articles.objects.get(pk=id)
     try:
-        next = Articles.objects.filter(pk__gt=id)[0:1]
+        next = Articles.objects.filter(pk__gt=id, issue=article.issue).order_by('id')[0:1][0]
+
     #print next
     except:
         next = None
 
     try:
-        prev = Articles.objects.filter(pk__lt=id)[0:1]
+        prev = Articles.objects.filter(pk__lt=id, issue=article.issue).order_by('-id')[0:1][0]
     #print next
     except:
         prev = None
 
-    article = Articles.objects.get(pk=id)
+    
     cnx = {'article': article, 'next': next, 'prev': prev}
     return render(request,'article_detail.html',cnx) 
 
-
-
-def article_next(request,id):
-    
-    try:
-        article = Articles.objects.filter(pk__gth=id)[0:1]
-    except:
-        article = Articles.objects.get(pk=id)
-    cnx = {'article': article}
-    return render(request,'article_detail.html',cnx) 
-
-def article_prev(request,id):
-    try:
-        article = Articles.objects.filter(pk__lth=id)[0:1]
-    except:
-        article = Articles.objects.get(pk=id)
-    cnx = {'article': article}
-    return render(request,'article_detail.html',cnx)
