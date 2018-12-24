@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main'
+    'main',
+    'django_medusa',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,7 @@ STATICFILES_DIRS = [
 ]
 
 from rgd.local import *
+
+MEDUSA_RENDERER_CLASS = 'django_medusa.renderers.DiskStaticSiteRenderer'
+MEDUSA_DEPLOY_DIR = os.path.join(BASE_DIR, 'build')
+SENDFILE_BACKEND = 'sendfile.backends.simple'

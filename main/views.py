@@ -22,6 +22,7 @@ def getNew(theme=None):
                 pass
         else:
             out.append(i)
+    #print out
     return out
 
 def getTop(theme=None):

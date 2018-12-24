@@ -3,3 +3,5 @@ ve
 static/data
 db.sqlite3
 rgd/local.py
+archive
+build

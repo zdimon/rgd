@@ -57,7 +57,7 @@
                 {% for i in topArticles %}
                     <li class="journal">
                         <div class="wrap">
-                            <a href="/top/{{ i.id }}" title="{{ i.title }}">
+                            <a href="{% url 'top_detail' id=i.id %}" title="{{ i.title }}">
                                 <div class="lazy" data-original="/static/data/top10/{{i.id}}.png" style="background-image: url('/images/smallplaceholder.png'); width: 247px; height: 180px;"></div>
                                 <p class="title">{{i.title}}<span class="newsIcons">
                                                                                                                                                             <img class="newsTypeIcon"  src="/static/images/i_pdf.png"/>

@@ -9,7 +9,7 @@
                     {% if prev %}
                         <a href="/article/{{ prev.id }}" style="display: inline-block"><img src="/static/images/contents_l_arr.png"/></a>
                     {% endif %}
-                    <a  style="display: inline-block" href="/journal/{{ article.issue.id }}" class="contents">Содержание</a>
+                    <a  style="display: inline-block" href="{% url 'issue_detail' id=article.issue.id %}" class="contents">Содержание</a>
                     {% if next %}
                         <a href="/article/{{ next.id }}" style="display: inline-block"><img src="/static/images/contents_r_arr.png"/></a>
                     {% endif %}

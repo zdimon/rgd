@@ -35,7 +35,7 @@
                                             <div class="lazy" data-original="/static/data/articles/{{ a.id }}/image.png" style="background-image: url('/static/images/lazybg_hor.png'); width: 270px; min-height: 180px;"></div>
                                         </div>
                                         <div class="col-md-8 col-xs-12">
-                                            <a href="/article/{{ a.id }}"><h2>{{ a.title }}</h2></a>									<p>{{ a.short_text }}...</p>
+                                            <a href="{% url 'article_detail' id=a.id %} "><h2>{{ a.title }}</h2></a>									<p>{{ a.short_text }}...</p>
                                                                             </div>
                                     </div>
                                     {% endfor %}
@@ -74,7 +74,7 @@
                         <ul class="list">
                                 {% for i in others %}
                                 <li class="journal col-md-3 col-sm-4 col-xs-12">
-                                    <a href="/journal/{{ i.id }}" title="{{ i.journal.name}}">
+                                    <a href="{% url 'issue_detail' id=i.id %}" title="{{ i.journal.name}}">
                                         <div class="lazy" data-original="/static/data/{{ i.journal.id }}/{{ i.id }}/306-433.png" style="background-image: url('/static/images/smallplaceholder.png'); width: 170px; height: 220px;"></div>
             
                                         <h3 class="title">{{ i.journal.name}} <span class="date">№{{ i.name}}, {{ i.release_date }}</span></h3>

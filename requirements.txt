@@ -1,2 +1,4 @@
 Django==1.11
 requests
+django-medusa
+django-sendfile

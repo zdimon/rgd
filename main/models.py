@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -27,6 +28,11 @@ class Journal(models.Model):
     mobile_cover = models.CharField(max_length=250, blank=True, null=True)
     mobile_thumb = models.CharField(max_length=250, blank=True, null=True)
     thumb = models.CharField(max_length=250, blank=True, null=True)
+
+    def get_absolute_url(self):
+        return reverse('journal_detail', kwargs={'id': self.id})
+
+
     def __str__(self):
         return self.name.encode('utf-8')
 
@@ -46,7 +52,8 @@ class Issue(models.Model):
     thumb = models.CharField(max_length=250, blank=True, null=True)
     is_downloaded = models.BooleanField(default=False)
 
-
+    def get_absolute_url(self):
+        return reverse('issue_detail', kwargs={'id': self.id})
 
 
 class Theme(models.Model):
