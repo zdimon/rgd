@@ -267,4 +267,4 @@ class Command(BaseCommand):
         importMedia()
         importTopArticles()
         importArticles()
-        importPdfs()
+        #importPdfs()

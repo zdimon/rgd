@@ -26,7 +26,7 @@ class Command(BaseCommand):
         print 'start'
         copy_tree("%s/static" % BASE_DIR, "%s/build/static" % BASE_DIR)
         arch_source = '%s/build' % BASE_DIR
-        arch_dest = '%s/static/archive/%s-%s.tar.gz' % (BASE_DIR, today.year, today.month)
+        arch_dest = '%s/archive/%s-%s.tar' % (BASE_DIR, today.year, today.month)
         #call("tar", "-czvf", arch_dest, arch_dest )
         cmd = "tar -czvf %s %s" % (arch_dest, arch_source)
         print cmd
