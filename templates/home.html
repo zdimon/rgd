@@ -73,7 +73,7 @@
             <ul class="list">
                     {% for i in new %}
                     <li class="journal col-md-3 col-sm-4 col-xs-12">
-                        <a href="/journal/{{ i.id }}" title="{{ i.name }}">
+                        <a href="{% url 'issue_detail' id=i.id %}" title="{{ i.name }}">
                             <div class="lazy" data-original="static/data/{{i.journal_id}}/{{ i.id }}/170-220.png" style="background-image: url('/static/images/smallplaceholder.png'); width: 170px; height: 220px;"></div>
                             <h3 class="title">{{ i.journal_name }} <span class="date">{{ i.name }}, {{ i.release_date }}  </span></h3>
                                                                 <span class="newsIcons">
