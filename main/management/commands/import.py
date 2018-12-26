@@ -250,6 +250,8 @@ def importPdfs():
     for i in Issue.objects.filter(is_downloaded=False, has_articles=False):
         path = '%s/static/data/%s/%s/journal.pdf' % (BASE_DIR,i.journal.id,i.id)
         
+        #path = '%s/static/data/pdf/%s.pdf' % (BASE_DIR,i.id)        
+        
         sign = hashlib.md5(str(i.id)+SUPER_PDF_PROTECTION).hexdigest() 
         url = 'http://pressa.ru/zd/getpdf/%s/%s' % (i.id,sign)
         print 'Download to %s' % path
@@ -267,4 +269,5 @@ class Command(BaseCommand):
         importMedia()
         importTopArticles()
         importArticles()
-        #importPdfs()
+        importPdfs()
+

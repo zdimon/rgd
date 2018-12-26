@@ -1,3 +1,12 @@
 . ./ve/bin/activate
 git pull
+rm db.sqlite3
+rm -rf  ./static/data
+mkdir ./static/data
+rm -rf  ./build
+mkdir  ./build
 ./manage.py migrate
+./manage.py init
+./manage.py import
+./manage.py staticsitegen
+./manage.py export
